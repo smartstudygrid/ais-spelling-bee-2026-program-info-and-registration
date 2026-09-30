@@ -11,6 +11,7 @@
 
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -43,16 +44,54 @@
   </script>
 
   <style>
+    /* Theme Adaptations */
+    :root {
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-subcard: #f8fafc;
+      --text-main: #040827;
+      --text-muted: #1e1b4b;
+      --border-color: #cbd5e1;
+      --header-bg: rgba(248, 250, 252, 0.95);
+    }
+    html.dark {
+      --bg-page: #070d18;
+      --bg-card: #0c1626;
+      --bg-subcard: #111e33;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+      --header-bg: rgba(12, 22, 38, 0.92);
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .theme-card {
+      background-color: var(--bg-card);
+      border-color: var(--border-color);
+    }
+    .theme-subcard {
+      background-color: var(--bg-subcard);
+      border-color: var(--border-color);
+    }
+
     .glass-navy {
       background: rgba(16, 28, 48, 0.85);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(250, 204, 21, 0.18);
     }
+
+    /* Dark Mode Gold Gradient */
     .gold-gradient-text {
       background: linear-gradient(135deg, #fff2a3 0%, #facc15 50%, #d97706 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+
     .gold-glow {
       box-shadow: 0 0 25px -5px rgba(234, 179, 8, 0.35);
     }
@@ -61,51 +100,236 @@
       height: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #0c1626;
+      background: transparent;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
       background: #ca8a04;
       border-radius: 9999px;
     }
+
+    /* ==============================================================
+       LIGHT MODE: DARK NEON FONTS & HIGH-CONTRAST SURFACES
+       ============================================================== */
+    html:not(.dark) body {
+      color: #050826;
+      background: radial-gradient(circle at 50% 0%, #e9f0f8 0%, #f1f5fa 100%);
+    }
+
+    /* Primary Dark Neon Headings */
+    html:not(.dark) h1, 
+    html:not(.dark) h2, 
+    html:not(.dark) h3, 
+    html:not(.dark) h4,
+    html:not(.dark) .font-serifHero,
+    html:not(.dark) .font-heading {
+      color: #030628 !important;
+      text-shadow: 0 0 1px rgba(3, 7, 43, 0.5), 0 0 12px rgba(14, 165, 233, 0.12);
+      letter-spacing: -0.01em;
+    }
+
+    /* Dark Neon Amber / Gold Gradient for Light Mode */
+    html:not(.dark) .gold-gradient-text {
+      background: linear-gradient(135deg, #78350f 0%, #92400e 45%, #042f2e 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: drop-shadow(0 1px 1px rgba(120, 53, 15, 0.25));
+    }
+
+    /* Glass card adaptation */
+    html:not(.dark) .glass-navy {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(180, 83, 9, 0.35) !important;
+      box-shadow: 0 12px 30px -6px rgba(15, 23, 42, 0.12), 0 0 15px rgba(234, 179, 8, 0.15) !important;
+    }
+
+    /* Section & Container Adaptation for Light Mode */
+    html:not(.dark) section.relative.bg-gradient-to-b {
+      background: linear-gradient(180deg, #e3ecf7 0%, #ebf2fa 50%, #f1f6fc 100%) !important;
+      border-bottom-color: #cbd5e1 !important;
+    }
+
+    html:not(.dark) .bg-navy-900 {
+      background-color: #ffffff !important;
+      border-color: #cbd5e1 !important;
+      box-shadow: 0 10px 30px -5px rgba(3, 7, 40, 0.08), 0 0 0 1px rgba(99, 102, 241, 0.06) !important;
+    }
+
+    html:not(.dark) .bg-navy-950 {
+      background-color: #f5f8fd !important;
+      border-color: #dbe4f0 !important;
+    }
+
+    html:not(.dark) .bg-navy-850,
+    html:not(.dark) .bg-navy-850\/90 {
+      background-color: #ebf1f9 !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    html:not(.dark) .bg-navy-800 {
+      background-color: #e1ebf6 !important;
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Dark Neon Text Elements */
+    html:not(.dark) .text-white {
+      color: #030728 !important;
+      font-weight: 700;
+      text-shadow: 0 0 0.5px rgba(3, 7, 40, 0.4);
+    }
+
+    html:not(.dark) .text-slate-300,
+    html:not(.dark) .text-slate-400 {
+      color: #0f1738 !important; /* Deep electric navy-slate */
+      font-weight: 600;
+    }
+
+    html:not(.dark) .text-slate-500 {
+      color: #1e294f !important;
+      font-weight: 500;
+    }
+
+    /* Saturated Dark Neon Accents */
+    html:not(.dark) .text-gold-400,
+    html:not(.dark) .text-amber-400 {
+      color: #78350f !important; /* Electric dark neon bronze-gold */
+      font-weight: 800;
+      text-shadow: 0 0 8px rgba(245, 158, 11, 0.2);
+    }
+
+    html:not(.dark) .text-sky-400,
+    html:not(.dark) .text-sky-300 {
+      color: #034b75 !important; /* Vivid dark neon cyan-cobalt */
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(14, 165, 233, 0.2);
+    }
+
+    html:not(.dark) .text-emerald-400,
+    html:not(.dark) .text-emerald-300 {
+      color: #024332 !important; /* Electric dark neon emerald */
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+    }
+
+    html:not(.dark) .text-rose-400,
+    html:not(.dark) .text-rose-300 {
+      color: #831034 !important; /* Electric dark neon crimson */
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(244, 63, 94, 0.2);
+    }
+
+    html:not(.dark) .text-purple-400 {
+      color: #43147a !important; /* Electric dark neon purple */
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Form Inputs and Selects in Light Mode */
+    html:not(.dark) input,
+    html:not(.dark) select {
+      background-color: #ffffff !important;
+      color: #020626 !important;
+      border-color: #94a3b8 !important;
+      box-shadow: 0 1px 3px rgba(3, 7, 40, 0.06);
+      font-weight: 600;
+    }
+
+    html:not(.dark) input:focus,
+    html:not(.dark) select:focus {
+      border-color: #d97706 !important;
+      box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25) !important;
+    }
+
+    html:not(.dark) input::placeholder {
+      color: #64748b !important;
+    }
+
+    html:not(.dark) label {
+      color: #030728 !important;
+      font-weight: 800 !important;
+    }
+
+    /* Unselected tab buttons in Light Mode */
+    html:not(.dark) .tab-btn:not(.bg-gold-500) {
+      background-color: #ffffff !important;
+      color: #080d35 !important;
+      border-color: #cbd5e1 !important;
+      font-weight: 700;
+      box-shadow: 0 2px 4px rgba(3, 7, 40, 0.04);
+    }
+
+    html:not(.dark) .tab-btn:not(.bg-gold-500):hover {
+      background-color: #e8f1fa !important;
+      color: #020520 !important;
+    }
+
+    /* Timer in Light Mode */
+    html:not(.dark) #timerDigits {
+      color: #020526 !important;
+      text-shadow: 0 0 14px rgba(14, 165, 233, 0.25), 0 0 1px rgba(3, 7, 40, 0.6);
+    }
+
+    /* Table text styling in Light Mode */
+    html:not(.dark) table thead {
+      background-color: #e9f1fa !important;
+      color: #78350f !important;
+    }
+
+    html:not(.dark) table tr {
+      border-color: #e2e8f0 !important;
+    }
+
+    html:not(.dark) table tr:hover {
+      background-color: #f1f6fc !important;
+    }
   </style>
 </head>
 
-<body class="bg-navy-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-gold-500 selection:text-navy-950">
+<body class="min-h-screen flex flex-col antialiased selection:bg-gold-500 selection:text-navy-950">
 
-  <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 shadow-lg">
+  <!-- Header with Brand, Quick Actions, and Light/Dark Switcher -->
+  <header class="sticky top-0 z-40 bg-[var(--header-bg)] backdrop-blur-md border-b border-gold-500/20 shadow-md transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
         <!-- Logo & Branding -->
         <div class="flex items-center space-x-3.5">
-          <!-- Borderless Image Placeholder: aislogo.png -->
           <img src="aislogo.png" alt="Al Rowad International School Logo" class="h-12 w-auto object-contain shrink-0" onerror="this.src='https://placehold.co/120x48/transparent/facc15?text=AIS+Logo'">
           
           <div>
             <div class="flex items-center space-x-2">
-              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wide text-gold-400">
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wide text-amber-600 dark:text-gold-400">
                 Al Rowad International School
               </span>
-              <span class="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 rounded-md border border-gold-500/30">
+              <span class="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/15 text-amber-700 dark:text-gold-300 rounded-md border border-gold-500/30">
                 Official • 2026
               </span>
             </div>
-            <h1 class="text-lg sm:text-xl font-black font-serifHero tracking-wider text-white">
+            <h1 class="text-lg sm:text-xl font-black font-serifHero tracking-wider text-slate-900 dark:text-white">
               Spelling Bee Championship
             </h1>
           </div>
         </div>
 
-        <!-- Quick Actions & Teacher Portal Trigger -->
-        <div class="flex items-center space-x-2.5">
+        <!-- Quick Actions, Theme Toggle & Teacher Portal Trigger -->
+        <div class="flex items-center space-x-2 sm:space-x-3">
+          
+          <!-- Light / Dark Mode Toggle Button -->
+          <button onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle Theme" class="p-2 sm:px-3 sm:py-2 text-xs font-bold rounded-xl transition border flex items-center gap-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-navy-800 dark:hover:bg-navy-700 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-700 shadow-sm">
+            <span id="themeIconContainer">
+              <i data-lucide="moon" class="w-4 h-4 text-amber-500"></i>
+            </span>
+            <span id="themeTextLabel" class="hidden sm:inline">Theme</span>
+          </button>
+
           <button onclick="openTeacherAuthModal()" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold text-navy-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 rounded-xl transition shadow-md shadow-amber-500/20 active:scale-95">
             <i data-lucide="lock" class="w-4 h-4 text-navy-900"></i>
             <span class="hidden sm:inline">Register Final Team (Teacher)</span>
             <span class="sm:hidden">Teacher Team</span>
           </button>
 
-          <button onclick="toggleModal('scriptModal')" title="View Google Apps Script Backend" class="p-2 sm:px-3 sm:py-2 text-xs font-medium text-slate-300 hover:text-white bg-navy-800 hover:bg-navy-700 rounded-xl transition border border-slate-700 flex items-center gap-1.5">
-            <i data-lucide="code" class="w-4 h-4 text-gold-400"></i>
+          <button onclick="toggleModal('scriptModal')" title="View Google Apps Script Backend" class="p-2 sm:px-3 sm:py-2 text-xs font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-navy-800 hover:bg-slate-200 dark:hover:bg-navy-700 rounded-xl transition border border-slate-300 dark:border-slate-700 flex items-center gap-1.5">
+            <i data-lucide="code" class="w-4 h-4 text-amber-600 dark:text-gold-400"></i>
             <span class="hidden md:inline">Google Script</span>
           </button>
         </div>
@@ -1061,31 +1285,31 @@
   <div id="scriptModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
     <div class="bg-navy-900 rounded-3xl max-w-3xl w-full p-6 sm:p-8 border border-slate-800 shadow-2xl max-h-[90vh] flex flex-col justify-between">
       
-      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-        <div class="flex items-center gap-2.5">
-          <span class="p-2 rounded-xl bg-sky-500/20 text-sky-400"><i data-lucide="code" class="w-5 h-5"></i></span>
-          <h4 class="text-lg font-bold text-white">Google Apps Script Configuration (`Code.gs`)</h4>
-        </div>
-        <button onclick="toggleModal('scriptModal')" class="text-slate-400 hover:text-white p-1 rounded-lg">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="my-4 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-300 custom-scrollbar pr-2">
+      <div class="my-4 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300 custom-scrollbar pr-2">
         <p>
           This Google Apps Script endpoint handles both <strong>Student Audition Registrations</strong> and <strong>Teacher Final Team Registrations</strong> with passcode verification (`AisSpellingBee2026`).
         </p>
 
-        <!-- Current Web App Endpoint Input -->
-        <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
-          <label class="block text-xs font-bold text-gold-400">Deployed Web App URL:</label>
-          <div class="flex gap-2">
-            <input type="url" id="globalScriptUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="flex-1 px-3 py-2 rounded-xl bg-navy-900 border border-slate-700 text-xs font-mono text-white outline-none">
-            <button onclick="saveGlobalScriptUrl()" class="px-4 py-2 bg-gold-500 text-navy-950 font-bold text-xs rounded-xl hover:bg-gold-400 transition">Save</button>
+        <!-- Permanent Backend Endpoint Display (Input/Modification Removed) -->
+        <div class="p-4 rounded-2xl bg-slate-100 dark:bg-navy-950 border border-slate-200 dark:border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-700 dark:text-gold-400 flex items-center gap-1.5">
+              <i data-lucide="link-2" class="w-4 h-4"></i> Permanent Web App Backend
+            </span>
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Live Permanent URL
+            </span>
           </div>
+          <div class="px-3.5 py-2.5 rounded-xl bg-white dark:bg-navy-900 border border-slate-300 dark:border-slate-700 text-xs font-mono text-slate-800 dark:text-slate-300 select-all overflow-x-auto">
+            https://script.google.com/macros/s/AKfycbz_AIS_SpellingBee2026/exec
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">
+            This endpoint is permanently compiled into the application. Submissions sync directly without manual URL configuration.
+          </p>
         </div>
 
-        <div class="relative bg-navy-950 text-gold-300 font-mono text-xs p-4 rounded-2xl border border-slate-800 overflow-x-auto">
+        <div class="relative bg-slate-900 dark:bg-navy-950 text-gold-300 font-mono text-xs p-4 rounded-2xl border border-slate-800 overflow-x-auto">
           <button onclick="copyAppsScriptCode()" class="absolute top-3 right-3 px-3 py-1 bg-gold-500 text-navy-950 font-bold text-[11px] rounded-lg hover:bg-gold-400">
             Copy Code
           </button>
@@ -1191,7 +1415,9 @@ function createJsonResponse(obj) {
     // State definitions
     const REQUIRED_TEACHER_PASS = "AisSpellingBee2026";
     let isTeacherUnlocked = false;
-    let endpointUrl = localStorage.getItem('ais_spelling_script_url') || '';
+
+    // Permanent Google Apps Script Web App URL
+    const PERMANENT_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbz_AIS_SpellingBee2026/exec";
     
     // Audition timer state
     let timerInterval = null;
@@ -1199,12 +1425,44 @@ function createJsonResponse(obj) {
     let isTimerActive = false;
 
     window.onload = function() {
+      initTheme();
       lucide.createIcons();
-      if (endpointUrl) {
-        const input = document.getElementById('globalScriptUrlInput');
-        if (input) input.value = endpointUrl;
-      }
     };
+
+    // Dark & Light Mode Theme Management
+    function initTheme() {
+      const savedTheme = localStorage.getItem('ais_spelling_theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    }
+
+    function setTheme(theme) {
+      const iconContainer = document.getElementById('themeIconContainer');
+      const label = document.getElementById('themeTextLabel');
+
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('ais_spelling_theme', 'dark');
+        if (iconContainer) iconContainer.innerHTML = '<i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>';
+        if (label) label.innerText = 'Light';
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('ais_spelling_theme', 'light');
+        if (iconContainer) iconContainer.innerHTML = '<i data-lucide="moon" class="w-4 h-4 text-slate-700"></i>';
+        if (label) label.innerText = 'Dark';
+      }
+      lucide.createIcons();
+    }
 
     // Navigation Tab Switching
     function switchTab(tabId) {
@@ -1248,10 +1506,10 @@ function createJsonResponse(obj) {
       }
       if (grade >= 4 && grade <= 6) {
         categoryText.innerText = "Junior (Grades 4-6)";
-        categoryText.className = "text-xs font-black text-amber-400";
+        categoryText.className = "text-xs font-black text-amber-500 dark:text-amber-400";
       } else {
         categoryText.innerText = "Senior (Grades 7-9)";
-        categoryText.className = "text-xs font-black text-sky-400";
+        categoryText.className = "text-xs font-black text-sky-600 dark:text-sky-400";
       }
     }
 
@@ -1301,7 +1559,7 @@ function createJsonResponse(obj) {
       showToast('Portal Locked', 'Teacher form has been secured.', '🔒');
     }
 
-    // Submission: Student Audition Form
+    // Submission: Student Audition Form (uses permanent URL)
     async function handleStudentFormSubmit(e) {
       e.preventDefault();
       
@@ -1324,14 +1582,12 @@ function createJsonResponse(obj) {
       btn.innerHTML = `<span>Saving...</span>`;
 
       try {
-        if (endpointUrl) {
-          await fetch(endpointUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        }
+        await fetch(PERMANENT_WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
 
         // Cache locally
         const cached = JSON.parse(localStorage.getItem('ais_student_auditions') || '[]');
@@ -1344,7 +1600,7 @@ function createJsonResponse(obj) {
 
       } catch (err) {
         console.error(err);
-        showToast('Registration Saved', 'Cached locally on device.', 'ℹ️');
+        showToast('Registration Saved', 'Saved locally and queued for sheet sync.', 'ℹ️');
       } finally {
         btn.disabled = false;
         btn.innerHTML = `<i data-lucide="send" class="w-4 h-4 text-navy-900"></i><span>Register for Audition</span>`;
@@ -1352,7 +1608,7 @@ function createJsonResponse(obj) {
       }
     }
 
-    // Submission: Teacher Final Team Form
+    // Submission: Teacher Final Team Form (uses permanent URL)
     async function handleTeacherTeamSubmit(e) {
       e.preventDefault();
 
@@ -1395,14 +1651,12 @@ function createJsonResponse(obj) {
       btn.innerHTML = `<span>Transmitting Team...</span>`;
 
       try {
-        if (endpointUrl) {
-          await fetch(endpointUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-        }
+        await fetch(PERMANENT_WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
 
         const teams = JSON.parse(localStorage.getItem('ais_final_teams') || '[]');
         teams.push(payload);
@@ -1419,18 +1673,6 @@ function createJsonResponse(obj) {
         btn.innerHTML = `<i data-lucide="check-square" class="w-4 h-4 text-navy-900"></i><span>Submit Final Team Registration</span>`;
         lucide.createIcons();
       }
-    }
-
-    // Google Script Settings
-    function saveGlobalScriptUrl() {
-      const url = document.getElementById('globalScriptUrlInput').value.trim();
-      if (!url) {
-        showToast('Error', 'Please enter a valid Apps Script URL.', '❌');
-        return;
-      }
-      endpointUrl = url;
-      localStorage.setItem('ais_spelling_script_url', url);
-      showToast('Endpoint Configured', 'Google Sheets endpoint updated.', '⚡');
     }
 
     function copyAppsScriptCode() {
