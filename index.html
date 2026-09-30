@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Rowad International Schools - Spelling Bee Championship 2026</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+            serifHero: ['Cinzel', 'serif'],
+          },
+          colors: {
+            navy: {
+              950: '#070d18',
+              900: '#0c1626',
+              850: '#111e33',
+              800: '#162742',
+              700: '#1e355b',
+            },
+            gold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+              700: '#a16207',
+            },
+            bronze: {
+              400: '#e2882e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-navy {
+      background: rgba(16, 28, 48, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(250, 204, 21, 0.18);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fff2a3 0%, #facc15 50%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-glow {
+      box-shadow: 0 0 25px -5px rgba(234, 179, 8, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0c1626;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #ca8a04;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="bg-navy-950 text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-gold-500 selection:text-navy-950">
+
+  <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-gold-500/20 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo & Branding -->
+        <div class="flex items-center space-x-3.5">
+          <!-- Borderless Image Placeholder: aislogo.png -->
+          <img src="aislogo.png" alt="Al Rowad International School Logo" class="h-12 w-auto object-contain shrink-0" onerror="this.src='https://placehold.co/120x48/transparent/facc15?text=AIS+Logo'">
+          
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xs sm:text-sm font-extrabold uppercase tracking-wide text-gold-400">
+                Al Rowad International School
+              </span>
+              <span class="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/20 text-gold-300 rounded-md border border-gold-500/30">
+                Official • 2026
+              </span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-black font-serifHero tracking-wider text-white">
+              Spelling Bee Championship
+            </h1>
+          </div>
+        </div>
+
+        <!-- Quick Actions & Teacher Portal Trigger -->
+        <div class="flex items-center space-x-2.5">
+          <button onclick="openTeacherAuthModal()" class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold text-navy-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 rounded-xl transition shadow-md shadow-amber-500/20 active:scale-95">
+            <i data-lucide="lock" class="w-4 h-4 text-navy-900"></i>
+            <span class="hidden sm:inline">Register Final Team (Teacher)</span>
+            <span class="sm:hidden">Teacher Team</span>
+          </button>
+
+          <button onclick="toggleModal('scriptModal')" title="View Google Apps Script Backend" class="p-2 sm:px-3 sm:py-2 text-xs font-medium text-slate-300 hover:text-white bg-navy-800 hover:bg-navy-700 rounded-xl transition border border-slate-700 flex items-center gap-1.5">
+            <i data-lucide="code" class="w-4 h-4 text-gold-400"></i>
+            <span class="hidden md:inline">Google Script</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative bg-gradient-to-b from-navy-900 via-navy-900 to-navy-950 py-10 sm:py-14 border-b border-slate-800/80 overflow-hidden">
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Hero Column -->
+        <div class="lg:col-span-8 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 shadow-sm">
+            <span>🏆</span> OFFICIAL CHAMPIONSHIP INFORMATION • ALL STAKEHOLDERS
+          </div>
+
+          <div class="flex items-center justify-between gap-4">
+            <div class="space-y-1">
+              <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-gold-400 font-heading">
+                Al Rowad International School
+              </h3>
+              <h2 class="text-3xl sm:text-5xl font-black font-serifHero tracking-wide leading-tight text-white">
+                SPELLING BEE <br>
+                <span class="gold-gradient-text">CHAMPIONSHIP 2026</span>
+              </h2>
+            </div>
+            
+            <!-- Borderless Image Placeholder: spelling-bee-logo.png on right of text -->
+            <img src="spelling-bee-logo.png" alt="Spelling Bee Championship Logo" class="h-20 sm:h-28 md:h-32 w-auto object-contain shrink-0" onerror="this.src='https://placehold.co/140x110/transparent/facc15?text=Bee+Logo'">
+          </div>
+
+          <p class="text-slate-300 text-sm sm:text-base font-normal max-w-2xl leading-relaxed">
+            Empowering students across Grades 4 to 9 with vocabulary mastery, healthy academic competition, and high-impact family engagement across UK &amp; US English standards.
+          </p>
+
+          <!-- Proposal Stats Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-xl">
+            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800">
+              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Target Groups</span>
+              <span class="text-sm sm:text-base font-extrabold text-gold-400">Grades 4–6 &amp; 7–9</span>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800">
+              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Presented By</span>
+              <span class="text-sm sm:text-base font-extrabold text-white">English Dept.</span>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800 col-span-2 sm:col-span-1">
+              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Lead Officer</span>
+              <span class="text-sm sm:text-base font-extrabold text-white">Amanullah Khan</span>
+            </div>
+          </div>
+
+          <!-- Partnership Note & CTAs -->
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            <button onclick="scrollToAuditionForm()" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition shadow-lg shadow-gold-500/20 flex items-center gap-2">
+              <i data-lucide="pen-tool" class="w-4 h-4"></i>
+              <span>Student Audition Registration</span>
+            </button>
+            <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+              <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
+              <span>Partnered with Tadrees Education</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Card (Excellence in English) -->
+        <div class="lg:col-span-4">
+          <div class="glass-navy p-6 rounded-3xl border border-gold-500/30 text-center relative overflow-hidden shadow-2xl">
+            <div class="w-16 h-16 mx-auto rounded-full bg-navy-800 border-2 border-gold-400/40 flex items-center justify-center text-3xl shadow-inner mb-3">
+              🏆
+            </div>
+            <h3 class="text-lg font-black font-serifHero tracking-wider text-white">EXCELLENCE IN ENGLISH</h3>
+            <p class="text-xs text-gold-400 font-bold mb-5 tracking-wide">Al Rowad International School</p>
+
+            <div class="space-y-3 text-left">
+              <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-4 h-4 text-gold-400"></i> Academic Rigor</span>
+                <span class="font-bold text-emerald-400">UK &amp; US Standards</span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="video" class="w-4 h-4 text-gold-400"></i> Parent Reach</span>
+                <span class="font-bold text-sky-400">YouTube Broadcast</span>
+              </div>
+
+              <div class="p-3 rounded-xl bg-navy-850/90 border border-gold-500/20 flex items-center justify-between text-xs">
+                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="coins" class="w-4 h-4 text-gold-400"></i> Total Investment</span>
+                <span class="font-extrabold text-gold-400 text-sm">2,000 SAR</span>
+              </div>
+            </div>
+
+            <!-- Quick Word List Access Link -->
+            <div class="mt-4 pt-4 border-t border-slate-800">
+              <a href="https://spellingbee456.smartstudygrid.workers.dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-gold-400 hover:text-gold-300">
+                <span>View Official Word Lists</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+    
+    <!-- Tab Navigation Bar -->
+    <div class="flex overflow-x-auto gap-2 pb-3 mb-8 border-b border-slate-800 custom-scrollbar" id="mainTabContainer">
+      <button onclick="switchTab('student')" id="tab-student" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20">
+        <i data-lucide="user-check" class="w-4 h-4"></i>
+        <span>Student Audition Portal</span>
+      </button>
+
+      <button onclick="switchTab('teacher')" id="tab-teacher" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="users" class="w-4 h-4 text-gold-400"></i>
+        <span>Teacher Team Selection</span>
+      </button>
+
+      <button onclick="switchTab('structure')" id="tab-structure" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="git-branch" class="w-4 h-4 text-sky-400"></i>
+        <span>Program Structure</span>
+      </button>
+
+      <button onclick="switchTab('schedule')" id="tab-schedule" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+        <span>Schedule &amp; Dates</span>
+      </button>
+
+      <button onclick="switchTab('prizes')" id="tab-prizes" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="award" class="w-4 h-4 text-yellow-400"></i>
+        <span>Prizes &amp; Budget (2,000 SAR)</span>
+      </button>
+
+      <button onclick="switchTab('rules')" id="tab-rules" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i>
+        <span>Rules (1 Point Rule)</span>
+      </button>
+
+      <button onclick="switchTab('timer')" id="tab-timer" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
+        <i data-lucide="timer" class="w-4 h-4 text-rose-400"></i>
+        <span>50s Audition Timer</span>
+      </button>
+    </div>
+
+    <section id="content-student" class="tab-content block">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Registration Form Card -->
+        <div class="lg:col-span-8">
+          <div class="bg-navy-900 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-800 gap-4">
+              <div>
+                <span class="px-2.5 py-1 text-[11px] font-bold text-amber-300 bg-amber-950/60 border border-amber-800/60 rounded-full">
+                  Open To All Students
+                </span>
+                <h3 class="text-2xl font-black font-heading text-white mt-2 flex items-center gap-2">
+                  <span>✍️</span> Student Audition Registration
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                  Want to represent your class in the 2026 Championship? Fill in your details below to sign up for class auditions.
+                </p>
+              </div>
+
+              <!-- Division Indicator Badge -->
+              <div id="studentDivisionBadge" class="p-3 bg-navy-950 rounded-2xl border border-slate-800 text-center min-w-[130px]">
+                <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Category</span>
+                <span id="studentCategoryText" class="text-xs font-black text-gold-400">Select Class</span>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form id="studentAuditionForm" onsubmit="handleStudentFormSubmit(event)" class="space-y-6">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Class Dropdown (4-9) -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                    Class / Grade (4 - 9) <span class="text-rose-500">*</span>
+                  </label>
+                  <select id="studentGrade" required onchange="handleStudentGradeChange()" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white font-medium text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition">
+                    <option value="">Choose Class</option>
+                    <option value="4">Class 4</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
+                    <option value="7">Class 7</option>
+                    <option value="8">Class 8</option>
+                    <option value="9">Class 9</option>
+                  </select>
+                </div>
+
+                <!-- Section Dropdown (A-K) -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                    Section (A - K) <span class="text-rose-500">*</span>
+                  </label>
+                  <select id="studentSection" required class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white font-medium text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition">
+                    <option value="">Choose Section</option>
+                    <option value="A">Section A</option>
+                    <option value="B">Section B</option>
+                    <option value="C">Section C</option>
+                    <option value="D">Section D</option>
+                    <option value="E">Section E</option>
+                    <option value="F">Section F</option>
+                    <option value="G">Section G</option>
+                    <option value="H">Section H</option>
+                    <option value="I">Section I</option>
+                    <option value="J">Section J</option>
+                    <option value="K">Section K</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Full Name -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                  Type Full Name <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="studentFullName" required placeholder="e.g. Tariq Mohammad Al-Dosari" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white font-medium text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition placeholder:text-slate-600">
+              </div>
+
+              <!-- S.Number -->
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                  S. Number (Student ID) <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="studentSNumber" required placeholder="e.g. S104829" class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white font-mono text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none transition placeholder:text-slate-600">
+                <p class="text-[11px] text-slate-500 mt-1">Provide your official AIS student identification number.</p>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <button type="submit" id="studentSubmitBtn" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-navy-950 font-black rounded-xl shadow-lg shadow-gold-500/20 transition transform active:scale-95 flex items-center justify-center gap-2">
+                  <i data-lucide="send" class="w-4 h-4 text-navy-900"></i>
+                  <span>Register for Audition</span>
+                </button>
+
+                <span class="text-xs text-slate-400">
+                  ⚡ Registrations are verified by your English teacher.
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Student Instructions & QR Card -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="bg-navy-900 p-6 rounded-3xl border border-slate-800 space-y-4">
+            <h4 class="text-sm font-extrabold text-gold-400 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="book-marked" class="w-4 h-4"></i> Audition Preparation
+            </h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              During the in-class auditions, your teacher will ask you 2 to 3 words from the official Grade Word List. Master the spelling, definition, and UK/US variations.
+            </p>
+
+            <div class="bg-navy-950 p-4 rounded-2xl border border-slate-800 text-center">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://spellingbee456.smartstudygrid.workers.dev" 
+                   alt="Spelling Bee Word List QR Code" 
+                   class="w-36 h-36 mx-auto object-contain rounded-xl p-1 bg-white shadow-md mb-3"
+                   onerror="this.src='https://placehold.co/160x160/1e293b/facc15?text=Word+List+QR'">
+              <span class="text-xs font-bold text-white block">Official Word List Link</span>
+              <a href="https://spellingbee456.smartstudygrid.workers.dev" target="_blank" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-700 text-gold-400 text-xs font-semibold transition border border-slate-700">
+                <span>spellingbee456.smartstudygrid.workers.dev</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Scoring Reminder -->
+          <div class="p-5 rounded-3xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs space-y-2">
+            <div class="flex items-center gap-2 font-bold text-amber-300 text-sm">
+              <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i>
+              <span>Official Scoring Update</span>
+            </div>
+            <p class="leading-relaxed">
+              Please note: Each correctly spelt word earns <strong>1 point</strong> (not 5 points). Accuracy and time discipline are key!
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="content-teacher" class="tab-content hidden">
+      <div class="max-w-4xl mx-auto space-y-6">
+        
+        <!-- Locked / Unlocked State Handler -->
+        <div id="teacherLockedState" class="bg-navy-900 rounded-3xl p-8 border border-slate-800 text-center space-y-5">
+          <div class="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center text-3xl mx-auto shadow-inner">
+            <i data-lucide="shield-alert" class="w-8 h-8"></i>
+          </div>
+          <div>
+            <h3 class="text-2xl font-black font-heading text-white">Teacher Selection Portal is Protected</h3>
+            <p class="text-sm text-slate-400 max-w-md mx-auto mt-1">
+              Final team submissions are restricted to authorized AIS English instructors. Enter the official activity passcode to open the form.
+            </p>
+          </div>
+          <button onclick="openTeacherAuthModal()" class="px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-navy-950 font-extrabold rounded-xl shadow-lg shadow-gold-500/20 transition flex items-center gap-2 mx-auto text-sm">
+            <i data-lucide="key" class="w-4 h-4 text-navy-900"></i>
+            <span>Unlock Teacher Selection Form</span>
+          </button>
+        </div>
+
+        <!-- Teacher Form (Shown when unlocked) -->
+        <div id="teacherUnlockedState" class="hidden bg-navy-900 rounded-3xl p-6 sm:p-8 border border-gold-500/30 shadow-2xl">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-slate-800 gap-4">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full text-xs font-bold mb-2">
+                <i data-lucide="unlock" class="w-3.5 h-3.5"></i> Authenticated Teacher Access
+              </div>
+              <h3 class="text-2xl font-extrabold font-heading text-white">Register Final Team (Teacher)</h3>
+              <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+                Register the 3 audition-winning students representing your class section.
+              </p>
+            </div>
+
+            <button onclick="lockTeacherPortal()" class="px-3 py-1.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-white text-xs font-bold border border-slate-700 transition flex items-center gap-1.5 self-start sm:self-auto">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-rose-400"></i>
+              <span>Lock Form</span>
+            </button>
+          </div>
+
+          <form id="teacherFinalTeamForm" onsubmit="handleTeacherTeamSubmit(event)" class="space-y-6">
+            
+            <!-- Class Selection -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-navy-950 p-4 sm:p-5 rounded-2xl border border-slate-800">
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                  Select Grade (4 - 9) <span class="text-rose-500">*</span>
+                </label>
+                <select id="teacherGradeSelect" required onchange="handleTeacherGradeChange()" class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-slate-700 text-white font-semibold text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none">
+                  <option value="">Select Grade</option>
+                  <option value="4">Grade 4 (Junior)</option>
+                  <option value="5">Grade 5 (Junior)</option>
+                  <option value="6">Grade 6 (Junior)</option>
+                  <option value="7">Grade 7 (Senior)</option>
+                  <option value="8">Grade 8 (Senior)</option>
+                  <option value="9">Grade 9 (Senior)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                  Select Section (A - K) <span class="text-rose-500">*</span>
+                </label>
+                <select id="teacherSectionSelect" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-slate-700 text-white font-semibold text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none">
+                  <option value="">Select Section</option>
+                  <option value="A">Section A</option>
+                  <option value="B">Section B</option>
+                  <option value="C">Section C</option>
+                  <option value="D">Section D</option>
+                  <option value="E">Section E</option>
+                  <option value="F">Section F</option>
+                  <option value="G">Section G</option>
+                  <option value="H">Section H</option>
+                  <option value="I">Section I</option>
+                  <option value="J">Section J</option>
+                  <option value="K">Section K</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Student 1 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-navy-950 border border-slate-800 space-y-3">
+              <span class="text-xs font-black text-gold-400 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="user" class="w-4 h-4"></i> Student 1 (Speller #1)
+              </span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 1 Full Name <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent1Name" required placeholder="e.g. Yazeed Al-Ghamdi" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white text-sm outline-none focus:border-gold-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 1 S-Number <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent1SNum" required placeholder="e.g. S109281" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white font-mono text-sm outline-none focus:border-gold-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- Student 2 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-navy-950 border border-slate-800 space-y-3">
+              <span class="text-xs font-black text-gold-400 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="user" class="w-4 h-4"></i> Student 2 (Speller #2)
+              </span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 2 Full Name <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent2Name" required placeholder="e.g. Omar Khalid" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white text-sm outline-none focus:border-gold-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 2 S-Number <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent2SNum" required placeholder="e.g. S109282" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white font-mono text-sm outline-none focus:border-gold-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- Student 3 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-navy-950 border border-slate-800 space-y-3">
+              <span class="text-xs font-black text-gold-400 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="user" class="w-4 h-4"></i> Student 3 (Speller #3)
+              </span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 3 Full Name <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent3Name" required placeholder="e.g. Rayan Mansoor" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white text-sm outline-none focus:border-gold-500">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Student 3 S-Number <span class="text-rose-500">*</span></label>
+                  <input type="text" id="tStudent3SNum" required placeholder="e.g. S109283" class="w-full px-3.5 py-2.5 rounded-xl bg-navy-900 border border-slate-700 text-white font-mono text-sm outline-none focus:border-gold-500">
+                </div>
+              </div>
+            </div>
+
+            <!-- Teacher Name Field -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-navy-950 border border-slate-800">
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">
+                Teacher Name <span class="text-rose-500">*</span>
+              </label>
+              <input type="text" id="tTeacherName" required placeholder="e.g. Mr. Amanullah Khan / Ms. Fatima" class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-slate-700 text-white text-sm outline-none focus:border-gold-500">
+            </div>
+
+            <!-- Submit -->
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <button type="submit" id="teacherSubmitBtn" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-navy-950 font-black rounded-xl shadow-lg shadow-gold-500/20 transition flex items-center justify-center gap-2">
+                <i data-lucide="check-square" class="w-4 h-4 text-navy-900"></i>
+                <span>Submit Final Team Registration</span>
+              </button>
+
+              <span class="text-xs text-slate-400">
+                🔒 Protected by script key &bull; Syncs with live Google Sheet
+              </span>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="content-structure" class="tab-content hidden space-y-8">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+          Tournament Arc
+        </span>
+        <h3 class="text-3xl sm:text-4xl font-black font-serifHero tracking-wide text-white">
+          PROGRAM STRUCTURE
+        </h3>
+        <p class="text-sm text-slate-300">
+          Comprehensive 3-stage progression from preliminary classroom leagues to the ultimate auditorium Grand Finale.
+        </p>
+      </div>
+
+      <!-- 3 Columns Structure from Screenshot 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Round 1: League Stage -->
+        <div class="bg-navy-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between hover:border-slate-700 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-navy-800 text-sky-400 font-black text-xs uppercase border border-sky-400/20">
+                Round 1
+              </span>
+              <i data-lucide="network" class="w-5 h-5 text-slate-500"></i>
+            </div>
+
+            <h4 class="text-2xl font-extrabold text-white">League Stage</h4>
+
+            <!-- Division Matchups -->
+            <div class="p-3.5 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+              <span class="text-xs font-bold text-amber-400">Junior Division:</span>
+              <p class="text-xs font-mono text-slate-300 bg-navy-900 p-2 rounded-lg border border-slate-800">
+                [G4 vs G4] • [G5 vs G5] • [G6 vs G6]
+              </p>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+              <span class="text-xs font-bold text-sky-400">Senior Division:</span>
+              <p class="text-xs font-mono text-slate-300 bg-navy-900 p-2 rounded-lg border border-slate-800">
+                [G7 vs G7] • [G8 vs G8] • [G9 vs G9]
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+              <span>Outcome: 1 Winner Team / Grade Level</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Round 2: The Final -->
+        <div class="bg-navy-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between hover:border-slate-700 transition">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-amber-950/70 text-amber-300 font-black text-xs uppercase border border-amber-500/30">
+                Round 2
+              </span>
+              <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+            </div>
+
+            <h4 class="text-2xl font-extrabold text-white">The Final</h4>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              The 3 winning teams from each grade category compete in the auditorium before a live parent &amp; student audience.
+            </p>
+
+            <div class="p-4 rounded-2xl bg-amber-950/40 border border-amber-500/20 text-xs text-amber-200 space-y-2">
+              <p class="font-bold flex items-center gap-1.5 text-amber-300">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i>
+                <span>Highlights team dynamics &amp; high-level spelling strategy.</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <p class="text-xs font-bold text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              <span>Outcome: 1 Winner Team per Division</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Round 3: Grand Finale -->
+        <div class="bg-gradient-to-b from-navy-900 to-amber-950/30 rounded-3xl p-6 border-2 border-gold-500/40 shadow-2xl flex flex-col justify-between relative overflow-hidden">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-lg bg-rose-950/80 text-rose-300 font-black text-xs uppercase border border-rose-500/30">
+                Round 3
+              </span>
+              <span class="text-xl">👑</span>
+            </div>
+
+            <div>
+              <h4 class="text-2xl font-extrabold text-white">Grand Finale</h4>
+              <span class="text-[11px] font-bold tracking-wider uppercase text-rose-400 block mt-0.5">SUDDEN DEATH FORMAT</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              The winning team splits into individual spellers competing head-to-head to crown the ultimate Spelling Champion of the Year.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs text-slate-400 font-semibold">Ultimate Goal:</span>
+            <span class="text-xs font-black text-gold-400 bg-gold-500/10 px-2.5 py-1 rounded-lg border border-gold-500/20">
+              Spelling Champion 2026
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="content-schedule" class="tab-content hidden space-y-6">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div>
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Timeline &amp; Milestones</span>
+          <h3 class="text-2xl sm:text-3xl font-black font-serifHero tracking-wider text-white">
+            PROPOSED SCHEDULE
+          </h3>
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-navy-900 border border-gold-500/30 text-gold-400 text-xs font-bold">
+          <i data-lucide="clock" class="w-4 h-4"></i>
+          <span>Target Window: Nov 5 – Dec 6, 2026</span>
+        </div>
+      </div>
+
+      <!-- Schedule Table -->
+      <div class="bg-navy-900 rounded-3xl border border-slate-800 overflow-hidden shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-navy-950 text-gold-400 font-bold uppercase text-[11px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th class="py-4 px-6">Grade Division</th>
+                <th class="py-4 px-6">Date</th>
+                <th class="py-4 px-6">Day</th>
+                <th class="py-4 px-6">Tournament Round</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800/80 text-xs sm:text-sm">
+              <!-- Item 1 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-sky-400 flex items-center gap-2">
+                  <i data-lucide="user" class="w-4 h-4"></i> Grade 4–6
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Nov 5, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Thursday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-navy-800 text-sky-300 font-semibold text-xs border border-sky-400/20">
+                    Round 1 League
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Item 2 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-purple-400 flex items-center gap-2">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i> Grade 7–9
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Nov 8, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Sunday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-navy-800 text-sky-300 font-semibold text-xs border border-sky-400/20">
+                    Round 1 League
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Item 3 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-sky-400 flex items-center gap-2">
+                  <i data-lucide="user" class="w-4 h-4"></i> Grade 4–6
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Nov 15, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Sunday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-amber-950/70 text-amber-300 font-semibold text-xs border border-amber-500/30">
+                    Round 2 The Final
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Item 4 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-purple-400 flex items-center gap-2">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i> Grade 7–9
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Nov 16, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Monday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-amber-950/70 text-amber-300 font-semibold text-xs border border-amber-500/30">
+                    Round 2 The Final
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Item 5 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-sky-400 flex items-center gap-2">
+                  <i data-lucide="user" class="w-4 h-4"></i> Grade 4–6
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Dec 3, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Thursday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-rose-950/80 text-rose-300 font-semibold text-xs border border-rose-500/30">
+                    Round 3 Grand Finale
+                  </span>
+                </td>
+              </tr>
+
+              <!-- Item 6 -->
+              <tr class="hover:bg-navy-850/50 transition">
+                <td class="py-4 px-6 font-bold text-purple-400 flex items-center gap-2">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i> Grade 7–9
+                </td>
+                <td class="py-4 px-6 font-mono font-bold text-white">Dec 6, 2026</td>
+                <td class="py-4 px-6 text-slate-300">Sunday</td>
+                <td class="py-4 px-6">
+                  <span class="px-3 py-1 rounded-lg bg-rose-950/80 text-rose-300 font-semibold text-xs border border-rose-500/30">
+                    Round 3 Grand Finale
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="content-prizes" class="tab-content hidden space-y-6">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-xs font-bold uppercase tracking-wider text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
+          Championship Recognition
+        </span>
+        <h3 class="text-3xl font-black font-serifHero tracking-wider text-white">
+          AWARDS &amp; CASH PRIZES
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400">
+          Complete prize breakdown and fixed budget approval breakdown for the AIS 2026 Tournament.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        
+        <!-- Champions & Runners-up Cards -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          
+          <!-- Spelling Champions -->
+          <div class="bg-navy-900 rounded-3xl p-6 border border-gold-500/30 shadow-xl flex flex-col justify-between text-center relative overflow-hidden">
+            <div>
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-500/20 text-gold-400 flex items-center justify-center text-3xl mb-4 border border-amber-500/30">
+                🏆
+              </div>
+              <h4 class="text-lg font-bold text-white">Spelling Champions</h4>
+              <p class="text-xs text-slate-400 mt-0.5">2 Winners (Grade 4–6 &amp; 7–9)</p>
+
+              <div class="my-5">
+                <span class="text-4xl font-black text-gold-400">500 <span class="text-xl font-bold">SAR</span></span>
+                <span class="text-xs text-slate-400 block mt-1">each</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 font-medium">
+              Subtotal: <strong class="text-white">1,000 SAR</strong>
+            </div>
+          </div>
+
+          <!-- Runners-Up -->
+          <div class="bg-navy-900 rounded-3xl p-6 border border-slate-800 shadow-xl flex flex-col justify-between text-center relative overflow-hidden">
+            <div>
+              <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-800 text-slate-200 flex items-center justify-center text-3xl mb-4 border border-slate-700">
+                🥈
+              </div>
+              <h4 class="text-lg font-bold text-white">Runners-Up</h4>
+              <p class="text-xs text-slate-400 mt-0.5">4 Winners (2 per Division)</p>
+
+              <div class="my-5">
+                <span class="text-4xl font-black text-slate-200">250 <span class="text-xl font-bold">SAR</span></span>
+                <span class="text-xs text-slate-400 block mt-1">each</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 font-medium">
+              Subtotal: <strong class="text-white">1,000 SAR</strong>
+            </div>
+          </div>
+
+          <!-- Extra deliverables -->
+          <div class="sm:col-span-2 bg-navy-950 p-4 rounded-2xl border border-slate-800 flex flex-wrap items-center justify-around gap-4 text-xs font-semibold text-slate-300">
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Certificates for all students</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-4 h-4 text-gold-400"></i> Certificates for Judges</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="video" class="w-4 h-4 text-gold-400"></i> In-house Livestream</span>
+          </div>
+        </div>
+
+        <!-- Budget Box (Screenshot 3 Right Box) -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-navy-900 to-navy-950 rounded-3xl p-6 sm:p-8 border-2 border-gold-500/40 shadow-2xl flex flex-col justify-between text-center">
+          <div>
+            <span class="text-[11px] font-bold text-gold-400 uppercase tracking-widest block">TOTAL FIXED BUDGET REQUEST</span>
+            
+            <div class="my-6">
+              <span class="text-5xl sm:text-6xl font-black text-gold-400">2,000</span>
+              <span class="text-2xl sm:text-3xl font-bold text-white ml-2">SAR</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm mx-auto">
+              Covers total cash prize purses across both Junior (G4–6) and Senior (G7–9) divisions.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-400 space-y-1">
+            <p class="font-medium text-slate-300">Zero external agency fees</p>
+            <p>Produced entirely in-department by Al Rowad English Dept.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="content-rules" class="tab-content hidden space-y-6">
+      
+      <div class="bg-navy-900 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl space-y-6">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <div>
+            <h3 class="text-2xl font-black font-heading text-white flex items-center gap-2">
+              <span>📜</span> Official Rules &amp; Regulations
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Authoritative standards governing rounds, scoring, timing, and judge rulings.
+            </p>
+          </div>
+
+          <div class="px-3.5 py-1.5 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 font-extrabold text-xs">
+            1 Point Per Word
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+          
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">1</span>
+              <span>Scoring System (1 Point)</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              Each correctly spelt word is awarded exactly <strong>1 point</strong> (updated from previous 5-point systems). No penalty points are deducted for misses.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">2</span>
+              <span>Team Consultation Rule</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              The designated speller may confer with their 2 teammates only during the first 25 seconds of the turn before spelling begins.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">3</span>
+              <span>50-Second Countdown Limit</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              Total allotment is 50 seconds: 25 seconds for consultation/clarifications (definitions, parts of speech), and 25 seconds to complete active spelling.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">4</span>
+              <span>25-Second Warning Bell</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              At the 25-second mark, a bell signals that active spelling must commence. Teammates must remain silent; no whispering or coaching is permitted.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">5</span>
+              <span>Word Retracing Policy</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              A speller may stop and retrace letters already uttered only with the pronouncer's permission, provided the final sequence has not been concluded.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">6</span>
+              <span>UK &amp; US Standards</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              Both British and American standard orthographies (e.g. <em>colour</em> / <em>color</em>) are fully accepted.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">7</span>
+              <span>Sudden Death Grand Finale</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              In Round 3, words outside the official booklet can be pronounced until an individual champion is crowned.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 font-bold text-gold-400">
+              <span class="w-6 h-6 rounded-lg bg-navy-800 text-white flex items-center justify-center text-xs">8</span>
+              <span>Finality of Judges</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed pl-8">
+              Decisions rendered by the official English Department judging panel are absolute and final.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="content-timer" class="tab-content hidden space-y-6">
+      
+      <div class="bg-navy-900 rounded-3xl p-6 sm:p-8 border border-slate-800 text-center max-w-2xl mx-auto shadow-2xl space-y-6">
+        <div>
+          <span class="px-3 py-1 bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold rounded-full uppercase">
+            Official Competition Clock
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black font-serifHero tracking-wider text-white mt-2">
+            50-Second Turn Timer
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">
+            25s Consultation &bull; 25s Active Spelling &bull; 1 Point per Correct Word
+          </p>
+        </div>
+
+        <!-- Clock Face -->
+        <div class="py-10 bg-navy-950 text-white rounded-3xl border-2 border-gold-500/30 shadow-inner relative overflow-hidden">
+          <p id="timerPhase" class="text-xs font-black tracking-widest text-gold-400 uppercase mb-2">READY FOR SPELLER</p>
+          <div id="timerDigits" class="text-7xl sm:text-9xl font-black font-mono tracking-tight text-white select-none">
+            50
+          </div>
+          <p id="timerHint" class="text-xs text-slate-400 mt-3">Click Start when the pronouncer issues the word</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <button onclick="startAuditionTimer()" id="timerStartBtn" class="px-6 py-3 bg-gold-500 hover:bg-gold-400 text-navy-950 font-black rounded-xl text-sm transition shadow-lg shadow-gold-500/20 flex items-center gap-2">
+            <i data-lucide="play" class="w-4 h-4 text-navy-900"></i>
+            <span>Start 50s</span>
+          </button>
+
+          <button onclick="pauseAuditionTimer()" id="timerPauseBtn" class="px-6 py-3 bg-navy-800 hover:bg-navy-750 text-slate-200 font-bold rounded-xl text-sm border border-slate-700 transition flex items-center gap-2">
+            <i data-lucide="pause" class="w-4 h-4"></i>
+            <span>Pause</span>
+          </button>
+
+          <button onclick="resetAuditionTimer()" class="px-6 py-3 bg-rose-950/60 hover:bg-rose-900 text-rose-300 font-bold rounded-xl text-sm border border-rose-800/40 transition flex items-center gap-2">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            <span>Reset</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="teacherAuthModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-900 rounded-3xl max-w-md w-full p-6 sm:p-8 border border-gold-500/40 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <span class="p-2 rounded-xl bg-amber-500/20 text-gold-400"><i data-lucide="lock" class="w-5 h-5"></i></span>
+          <h4 class="text-lg font-bold text-white">Teacher Portal Passcode</h4>
+        </div>
+        <button onclick="closeTeacherAuthModal()" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-300 leading-relaxed">
+        Please enter the faculty verification passcode to access the <strong>Register Final Team</strong> submission form.
+      </p>
+
+      <div>
+        <label class="block text-xs font-bold text-slate-300 mb-1.5">Activity Passcode</label>
+        <input type="password" id="teacherAuthInput" placeholder="Enter password..." class="w-full px-4 py-3 rounded-xl bg-navy-950 border border-slate-700 text-white font-mono text-sm focus:border-gold-500 focus:ring-1 focus:ring-gold-500 outline-none">
+        <p id="teacherAuthError" class="text-xs text-rose-400 mt-1.5 hidden font-semibold"></p>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 pt-2">
+        <button onclick="closeTeacherAuthModal()" class="px-4 py-2.5 rounded-xl text-slate-300 hover:text-white text-xs font-semibold">
+          Cancel
+        </button>
+        <button onclick="verifyTeacherPassword()" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-extrabold text-xs transition">
+          Unlock Form
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="scriptModal" class="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-navy-900 rounded-3xl max-w-3xl w-full p-6 sm:p-8 border border-slate-800 shadow-2xl max-h-[90vh] flex flex-col justify-between">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <div class="flex items-center gap-2.5">
+          <span class="p-2 rounded-xl bg-sky-500/20 text-sky-400"><i data-lucide="code" class="w-5 h-5"></i></span>
+          <h4 class="text-lg font-bold text-white">Google Apps Script Configuration (`Code.gs`)</h4>
+        </div>
+        <button onclick="toggleModal('scriptModal')" class="text-slate-400 hover:text-white p-1 rounded-lg">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="my-4 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-300 custom-scrollbar pr-2">
+        <p>
+          This Google Apps Script endpoint handles both <strong>Student Audition Registrations</strong> and <strong>Teacher Final Team Registrations</strong> with passcode verification (`AisSpellingBee2026`).
+        </p>
+
+        <!-- Current Web App Endpoint Input -->
+        <div class="p-4 rounded-2xl bg-navy-950 border border-slate-800 space-y-2">
+          <label class="block text-xs font-bold text-gold-400">Deployed Web App URL:</label>
+          <div class="flex gap-2">
+            <input type="url" id="globalScriptUrlInput" placeholder="https://script.google.com/macros/s/.../exec" class="flex-1 px-3 py-2 rounded-xl bg-navy-900 border border-slate-700 text-xs font-mono text-white outline-none">
+            <button onclick="saveGlobalScriptUrl()" class="px-4 py-2 bg-gold-500 text-navy-950 font-bold text-xs rounded-xl hover:bg-gold-400 transition">Save</button>
+          </div>
+        </div>
+
+        <div class="relative bg-navy-950 text-gold-300 font-mono text-xs p-4 rounded-2xl border border-slate-800 overflow-x-auto">
+          <button onclick="copyAppsScriptCode()" class="absolute top-3 right-3 px-3 py-1 bg-gold-500 text-navy-950 font-bold text-[11px] rounded-lg hover:bg-gold-400">
+            Copy Code
+          </button>
+          <pre id="appsScriptBlock">/**
+ * Al Rowad International Schools - Spelling Bee 2026
+ * Backend receiver for Student Auditions and Teacher Final Teams
+ */
+
+const TEACHER_SECRET_KEY = "AisSpellingBee2026";
+
+function doPost(e) {
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const data = JSON.parse(e.postData.contents);
+    
+    if (data.type === "STUDENT_AUDITION") {
+      let sheet = ss.getSheetByName("Audition_Registrations");
+      if (!sheet) {
+        sheet = ss.insertSheet("Audition_Registrations");
+        sheet.appendRow(["Timestamp", "Class/Grade", "Section", "Full Name", "S-Number", "Division"]);
+      }
+      
+      const division = (data.grade >= 4 &amp;&amp; data.grade &lt;= 6) ? "Junior (4-6)" : "Senior (7-9)";
+      sheet.appendRow([
+        new Date(),
+        data.grade,
+        data.section,
+        data.fullName,
+        data.sNumber,
+        division
+      ]);
+      
+      return createJsonResponse({ status: "success", message: "Audition registered successfully" });
+    }
+    
+    if (data.type === "TEACHER_FINAL_TEAM") {
+      // Validate faculty passcode
+      if (data.passcode !== TEACHER_SECRET_KEY) {
+        return createJsonResponse({ status: "error", message: "Unauthorized: Invalid Passcode" });
+      }
+      
+      let sheet = ss.getSheetByName("Final_Teams");
+      if (!sheet) {
+        sheet = ss.insertSheet("Final_Teams");
+        sheet.appendRow([
+          "Timestamp", "Grade", "Section", "Teacher Name",
+          "Student 1 Name", "Student 1 S-Num",
+          "Student 2 Name", "Student 2 S-Num",
+          "Student 3 Name", "Student 3 S-Num",
+          "Division"
+        ]);
+      }
+      
+      const division = (data.grade >= 4 &amp;&amp; data.grade &lt;= 6) ? "Junior (4-6)" : "Senior (7-9)";
+      sheet.appendRow([
+        new Date(),
+        data.grade,
+        data.section,
+        data.teacherName,
+        data.student1.name, data.student1.sNumber,
+        data.student2.name, data.student2.sNumber,
+        data.student3.name, data.student3.sNumber,
+        division
+      ]);
+      
+      return createJsonResponse({ status: "success", message: "Final team saved successfully" });
+    }
+
+    return createJsonResponse({ status: "error", message: "Unknown action type" });
+
+  } catch (err) {
+    return createJsonResponse({ status: "error", message: err.toString() });
+  }
+}
+
+function createJsonResponse(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="toggleModal('scriptModal')" class="px-5 py-2.5 bg-navy-800 hover:bg-navy-700 text-white font-bold rounded-xl text-xs">
+          Close Setup
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 max-w-sm w-full bg-navy-900 text-white p-4 rounded-2xl shadow-2xl border border-gold-500/40 flex items-center gap-3 pointer-events-none">
+    <div id="toastIcon" class="w-8 h-8 rounded-xl bg-gold-500 text-navy-950 flex items-center justify-center font-bold shrink-0">
+      ✓
+    </div>
+    <div class="flex-1">
+      <h5 id="toastTitle" class="text-xs font-bold text-gold-400">Notice</h5>
+      <p id="toastMessage" class="text-xs text-slate-300 mt-0.5">Operation complete.</p>
+    </div>
+  </div>
+
+  <script>
+    // State definitions
+    const REQUIRED_TEACHER_PASS = "AisSpellingBee2026";
+    let isTeacherUnlocked = false;
+    let endpointUrl = localStorage.getItem('ais_spelling_script_url') || '';
+    
+    // Audition timer state
+    let timerInterval = null;
+    let timerSeconds = 50;
+    let isTimerActive = false;
+
+    window.onload = function() {
+      lucide.createIcons();
+      if (endpointUrl) {
+        const input = document.getElementById('globalScriptUrlInput');
+        if (input) input.value = endpointUrl;
+      }
+    };
+
+    // Navigation Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-gold-500', 'text-navy-950', 'shadow-lg', 'shadow-gold-500/20');
+        btn.classList.add('bg-navy-900', 'text-slate-300');
+      });
+
+      const targetContent = document.getElementById(`content-${tabId}`);
+      if (targetContent) targetContent.classList.remove('hidden');
+
+      const targetBtn = document.getElementById(`tab-${tabId}`);
+      if (targetBtn) {
+        targetBtn.classList.remove('bg-navy-900', 'text-slate-300');
+        targetBtn.classList.add('bg-gold-500', 'text-navy-950', 'shadow-lg', 'shadow-gold-500/20');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToAuditionForm() {
+      switchTab('student');
+      document.getElementById('studentAuditionForm')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal Toggles
+    function toggleModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    // Dynamic Category Updates
+    function handleStudentGradeChange() {
+      const grade = parseInt(document.getElementById('studentGrade').value);
+      const categoryText = document.getElementById('studentCategoryText');
+      if (!grade) {
+        categoryText.innerText = "Select Class";
+        categoryText.className = "text-xs font-black text-gold-400";
+        return;
+      }
+      if (grade >= 4 && grade <= 6) {
+        categoryText.innerText = "Junior (Grades 4-6)";
+        categoryText.className = "text-xs font-black text-amber-400";
+      } else {
+        categoryText.innerText = "Senior (Grades 7-9)";
+        categoryText.className = "text-xs font-black text-sky-400";
+      }
+    }
+
+    function handleTeacherGradeChange() {
+      // reserved for dynamic section updates if needed
+    }
+
+    // Teacher Portal Authentication
+    function openTeacherAuthModal() {
+      if (isTeacherUnlocked) {
+        switchTab('teacher');
+        return;
+      }
+      document.getElementById('teacherAuthError').classList.add('hidden');
+      document.getElementById('teacherAuthInput').value = '';
+      toggleModal('teacherAuthModal');
+      setTimeout(() => document.getElementById('teacherAuthInput').focus(), 150);
+    }
+
+    function closeTeacherAuthModal() {
+      document.getElementById('teacherAuthModal').classList.add('hidden');
+    }
+
+    function verifyTeacherPassword() {
+      const inputPass = document.getElementById('teacherAuthInput').value.trim();
+      const errEl = document.getElementById('teacherAuthError');
+
+      if (inputPass === REQUIRED_TEACHER_PASS) {
+        isTeacherUnlocked = true;
+        closeTeacherAuthModal();
+        
+        document.getElementById('teacherLockedState').classList.add('hidden');
+        document.getElementById('teacherUnlockedState').classList.remove('hidden');
+        
+        switchTab('teacher');
+        showToast('Access Granted', 'Teacher team selection form is now unlocked.', '🔓');
+      } else {
+        errEl.innerText = "Incorrect passcode. Use the designated faculty password.";
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    function lockTeacherPortal() {
+      isTeacherUnlocked = false;
+      document.getElementById('teacherLockedState').classList.remove('hidden');
+      document.getElementById('teacherUnlockedState').classList.add('hidden');
+      showToast('Portal Locked', 'Teacher form has been secured.', '🔒');
+    }
+
+    // Submission: Student Audition Form
+    async function handleStudentFormSubmit(e) {
+      e.preventDefault();
+      
+      const grade = parseInt(document.getElementById('studentGrade').value);
+      const section = document.getElementById('studentSection').value;
+      const fullName = document.getElementById('studentFullName').value.trim();
+      const sNumber = document.getElementById('studentSNumber').value.trim();
+
+      const payload = {
+        type: "STUDENT_AUDITION",
+        grade,
+        section,
+        fullName,
+        sNumber,
+        timestamp: new Date().toISOString()
+      };
+
+      const btn = document.getElementById('studentSubmitBtn');
+      btn.disabled = true;
+      btn.innerHTML = `<span>Saving...</span>`;
+
+      try {
+        if (endpointUrl) {
+          await fetch(endpointUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        // Cache locally
+        const cached = JSON.parse(localStorage.getItem('ais_student_auditions') || '[]');
+        cached.push(payload);
+        localStorage.setItem('ais_student_auditions', JSON.stringify(cached));
+
+        showToast('Audition Registered!', `Good luck, ${fullName}! Your audition has been logged.`, '🎉');
+        document.getElementById('studentAuditionForm').reset();
+        handleStudentGradeChange();
+
+      } catch (err) {
+        console.error(err);
+        showToast('Registration Saved', 'Cached locally on device.', 'ℹ️');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="send" class="w-4 h-4 text-navy-900"></i><span>Register for Audition</span>`;
+        lucide.createIcons();
+      }
+    }
+
+    // Submission: Teacher Final Team Form
+    async function handleTeacherTeamSubmit(e) {
+      e.preventDefault();
+
+      if (!isTeacherUnlocked) {
+        openTeacherAuthModal();
+        return;
+      }
+
+      const grade = parseInt(document.getElementById('teacherGradeSelect').value);
+      const section = document.getElementById('teacherSectionSelect').value;
+      const teacherName = document.getElementById('tTeacherName').value.trim();
+
+      const student1 = {
+        name: document.getElementById('tStudent1Name').value.trim(),
+        sNumber: document.getElementById('tStudent1SNum').value.trim(),
+      };
+      const student2 = {
+        name: document.getElementById('tStudent2Name').value.trim(),
+        sNumber: document.getElementById('tStudent2SNum').value.trim(),
+      };
+      const student3 = {
+        name: document.getElementById('tStudent3Name').value.trim(),
+        sNumber: document.getElementById('tStudent3SNum').value.trim(),
+      };
+
+      const payload = {
+        type: "TEACHER_FINAL_TEAM",
+        passcode: REQUIRED_TEACHER_PASS,
+        grade,
+        section,
+        teacherName,
+        student1,
+        student2,
+        student3,
+        timestamp: new Date().toISOString()
+      };
+
+      const btn = document.getElementById('teacherSubmitBtn');
+      btn.disabled = true;
+      btn.innerHTML = `<span>Transmitting Team...</span>`;
+
+      try {
+        if (endpointUrl) {
+          await fetch(endpointUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+
+        const teams = JSON.parse(localStorage.getItem('ais_final_teams') || '[]');
+        teams.push(payload);
+        localStorage.setItem('ais_final_teams', JSON.stringify(teams));
+
+        showToast('Team Registered!', `Grade ${grade}-${section} final team submitted successfully!`, '🌟');
+        document.getElementById('teacherFinalTeamForm').reset();
+
+      } catch (err) {
+        console.error(err);
+        showToast('Sync Notice', 'Team stored in browser backup.', '⚠️');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = `<i data-lucide="check-square" class="w-4 h-4 text-navy-900"></i><span>Submit Final Team Registration</span>`;
+        lucide.createIcons();
+      }
+    }
+
+    // Google Script Settings
+    function saveGlobalScriptUrl() {
+      const url = document.getElementById('globalScriptUrlInput').value.trim();
+      if (!url) {
+        showToast('Error', 'Please enter a valid Apps Script URL.', '❌');
+        return;
+      }
+      endpointUrl = url;
+      localStorage.setItem('ais_spelling_script_url', url);
+      showToast('Endpoint Configured', 'Google Sheets endpoint updated.', '⚡');
+    }
+
+    function copyAppsScriptCode() {
+      const code = document.getElementById('appsScriptBlock').innerText;
+      const ta = document.createElement('textarea');
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      showToast('Copied Code', 'Apps Script code copied to clipboard.', '📋');
+    }
+
+    // 50s Audition Timer Logic
+    function startAuditionTimer() {
+      if (isTimerActive) return;
+      isTimerActive = true;
+
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          renderTimerDigits();
+        } else {
+          pauseAuditionTimer();
+          showToast('Time Expired', '50-second turn has concluded.', '🔔');
+        }
+      }, 1000);
+    }
+
+    function pauseAuditionTimer() {
+      clearInterval(timerInterval);
+      isTimerActive = false;
+    }
+
+    function resetAuditionTimer() {
+      pauseAuditionTimer();
+      timerSeconds = 50;
+      renderTimerDigits();
+    }
+
+    function renderTimerDigits() {
+      const digits = document.getElementById('timerDigits');
+      const phase = document.getElementById('timerPhase');
+      const hint = document.getElementById('timerHint');
+
+      digits.innerText = timerSeconds < 10 ? `0${timerSeconds}` : timerSeconds;
+
+      if (timerSeconds > 25) {
+        phase.innerText = 'PHASE 1: CONSULTATION & QUESTIONS (25s)';
+        phase.className = 'text-xs font-black tracking-widest text-gold-400 uppercase mb-2';
+        hint.innerText = 'Teammates may consult and ask pronouncer for definitions or UK/US forms.';
+      } else if (timerSeconds > 0) {
+        phase.innerText = 'PHASE 2: ACTIVE SPELLING ONLY (25s)';
+        phase.className = 'text-xs font-black tracking-widest text-rose-400 animate-pulse uppercase mb-2';
+        hint.innerText = 'Speller must spell solo. No coaching or whispering allowed!';
+      } else {
+        phase.innerText = 'TURN TIME COMPLETED';
+        phase.className = 'text-xs font-black tracking-widest text-slate-500 uppercase mb-2';
+        hint.innerText = 'Judging panel marks score: 1 point for correct spelling.';
+      }
+    }
+
+    // Toast UI
+    function showToast(title, msg, icon = '✓') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMessage').innerText = msg;
+      document.getElementById('toastIcon').innerText = icon;
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
