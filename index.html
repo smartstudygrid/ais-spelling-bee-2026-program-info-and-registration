@@ -143,10 +143,13 @@
       box-shadow: 0 12px 30px -6px rgba(15, 23, 42, 0.12), 0 0 15px rgba(234, 179, 8, 0.15) !important;
     }
 
-    /* Section & Container Adaptation for Light Mode */
-    html:not(.dark) section.relative.bg-gradient-to-b {
-      background: linear-gradient(180deg, #e3ecf7 0%, #ebf2fa 50%, #f1f6fc 100%) !important;
-      border-bottom-color: #cbd5e1 !important;
+    /* Gradient Containers & Cards Adaptation for Light Mode */
+    html:not(.dark) .bg-gradient-to-b,
+    html:not(.dark) .bg-gradient-to-br,
+    html:not(.dark) [class*="bg-gradient-to-b"],
+    html:not(.dark) [class*="bg-gradient-to-br"] {
+      background-image: linear-gradient(180deg, #ffffff 0%, #edf3fa 50%, #e5eff9 100%) !important;
+      border-color: #cbd5e1 !important;
     }
 
     html:not(.dark) .bg-navy-900 {
@@ -171,27 +174,53 @@
       border-color: #cbd5e1 !important;
     }
 
-    /* Dark Neon Text Elements */
-    html:not(.dark) .text-white {
-      color: #030728 !important;
-      font-weight: 700;
-      text-shadow: 0 0 0.5px rgba(3, 7, 40, 0.4);
+    html:not(.dark) .bg-emerald-950\/60,
+    html:not(.dark) .bg-amber-950\/60,
+    html:not(.dark) .bg-amber-950\/70,
+    html:not(.dark) .bg-amber-950\/40,
+    html:not(.dark) .bg-amber-950\/30,
+    html:not(.dark) .bg-rose-950\/80,
+    html:not(.dark) .bg-rose-950\/60 {
+      background-color: #f1f5f9 !important;
+      border-color: #cbd5e1 !important;
     }
 
+    html:not(.dark) .border-slate-800,
+    html:not(.dark) .border-slate-800\/80,
+    html:not(.dark) .border-slate-700 {
+      border-color: #cbd5e1 !important;
+    }
+
+    /* Dark Neon Text Elements - Guaranteeing zero invisible text in light mode */
+    html:not(.dark) body,
+    html:not(.dark) p,
+    html:not(.dark) span:not(.tab-btn.bg-gold-500 span):not(button.bg-gold-500 span),
+    html:not(.dark) li,
+    html:not(.dark) td,
+    html:not(.dark) th,
+    html:not(.dark) strong,
+    html:not(.dark) b,
+    html:not(.dark) div:not(#themeIconContainer) {
+      color: #060a28;
+    }
+
+    html:not(.dark) .text-white,
+    html:not(.dark) .text-slate-100,
+    html:not(.dark) .text-slate-200,
     html:not(.dark) .text-slate-300,
-    html:not(.dark) .text-slate-400 {
-      color: #0f1738 !important; /* Deep electric navy-slate */
+    html:not(.dark) .text-slate-400,
+    html:not(.dark) .text-slate-500,
+    html:not(.dark) .text-slate-600 {
+      color: #060a28 !important;
       font-weight: 600;
-    }
-
-    html:not(.dark) .text-slate-500 {
-      color: #1e294f !important;
-      font-weight: 500;
     }
 
     /* Saturated Dark Neon Accents */
     html:not(.dark) .text-gold-400,
-    html:not(.dark) .text-amber-400 {
+    html:not(.dark) .text-gold-300,
+    html:not(.dark) .text-amber-400,
+    html:not(.dark) .text-amber-300,
+    html:not(.dark) .text-amber-200 {
       color: #78350f !important; /* Electric dark neon bronze-gold */
       font-weight: 800;
       text-shadow: 0 0 8px rgba(245, 158, 11, 0.2);
@@ -218,7 +247,8 @@
       text-shadow: 0 0 8px rgba(244, 63, 94, 0.2);
     }
 
-    html:not(.dark) .text-purple-400 {
+    html:not(.dark) .text-purple-400,
+    html:not(.dark) .text-purple-300 {
       color: #43147a !important; /* Electric dark neon purple */
       font-weight: 700;
       text-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
@@ -337,149 +367,206 @@
     </div>
   </header>
 
-  <section class="relative bg-gradient-to-b from-navy-900 via-navy-900 to-navy-950 py-10 sm:py-14 border-b border-slate-800/80 overflow-hidden">
-    <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:24px_24px]"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+  <!-- Top Navigation Bar (Positioned at Top with Home Tab) -->
+  <nav class="sticky top-20 z-30 bg-slate-100/95 dark:bg-navy-900/95 backdrop-blur-md border-b border-slate-300 dark:border-slate-800 shadow-sm py-3 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex overflow-x-auto gap-2 pb-1 custom-scrollbar items-center" id="mainTabContainer">
         
-        <!-- Left Hero Column -->
-        <div class="lg:col-span-8 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 shadow-sm">
-            <span>🏆</span> OFFICIAL CHAMPIONSHIP INFORMATION • ALL STAKEHOLDERS
-          </div>
+        <!-- Home Tab -->
+        <button onclick="switchTab('home')" id="tab-home" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-gold-500 text-navy-950 shadow-md shadow-gold-500/20">
+          <i data-lucide="home" class="w-4 h-4"></i>
+          <span>Home</span>
+        </button>
 
-          <div class="flex items-center justify-between gap-4">
-            <div class="space-y-1">
-              <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-gold-400 font-heading">
-                Al Rowad International School
-              </h3>
-              <h2 class="text-3xl sm:text-5xl font-black font-serifHero tracking-wide leading-tight text-white">
-                SPELLING BEE <br>
-                <span class="gold-gradient-text">CHAMPIONSHIP 2026</span>
-              </h2>
-            </div>
-            
-            <!-- Borderless Image Placeholder: spelling-bee-logo.png on right of text -->
-            <img src="spelling-bee-logo.png" alt="Spelling Bee Championship Logo" class="h-20 sm:h-28 md:h-32 w-auto object-contain shrink-0" onerror="this.src='https://placehold.co/140x110/transparent/facc15?text=Bee+Logo'">
-          </div>
+        <!-- Student Audition Portal Tab -->
+        <button onclick="switchTab('student')" id="tab-student" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="user-check" class="w-4 h-4"></i>
+          <span>Student Audition Portal</span>
+        </button>
 
-          <p class="text-slate-300 text-sm sm:text-base font-normal max-w-2xl leading-relaxed">
-            Empowering students across Grades 4 to 9 with vocabulary mastery, healthy academic competition, and high-impact family engagement across UK &amp; US English standards.
-          </p>
+        <!-- Teacher Team Selection Tab -->
+        <button onclick="switchTab('teacher')" id="tab-teacher" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="users" class="w-4 h-4 text-gold-400"></i>
+          <span>Teacher Team Selection</span>
+        </button>
 
-          <!-- Proposal Stats Badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-xl">
-            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800">
-              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Target Groups</span>
-              <span class="text-sm sm:text-base font-extrabold text-gold-400">Grades 4–6 &amp; 7–9</span>
-            </div>
+        <!-- Program Structure Tab -->
+        <button onclick="switchTab('structure')" id="tab-structure" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="git-branch" class="w-4 h-4 text-sky-400"></i>
+          <span>Program Structure</span>
+        </button>
 
-            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800">
-              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Presented By</span>
-              <span class="text-sm sm:text-base font-extrabold text-white">English Dept.</span>
-            </div>
+        <!-- Schedule & Dates Tab -->
+        <button onclick="switchTab('schedule')" id="tab-schedule" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+          <span>Schedule &amp; Dates</span>
+        </button>
 
-            <div class="p-3 rounded-2xl bg-navy-850/90 border border-slate-800 col-span-2 sm:col-span-1">
-              <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Lead Officer</span>
-              <span class="text-sm sm:text-base font-extrabold text-white">Amanullah Khan</span>
-            </div>
-          </div>
+        <!-- Prizes & Budget Tab -->
+        <button onclick="switchTab('prizes')" id="tab-prizes" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="award" class="w-4 h-4 text-yellow-400"></i>
+          <span>Prizes &amp; Budget (2,000 SAR)</span>
+        </button>
 
-          <!-- Partnership Note & CTAs -->
-          <div class="flex flex-wrap items-center gap-4 pt-1">
-            <button onclick="scrollToAuditionForm()" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition shadow-lg shadow-gold-500/20 flex items-center gap-2">
-              <i data-lucide="pen-tool" class="w-4 h-4"></i>
-              <span>Student Audition Registration</span>
-            </button>
-            <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
-              <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
-              <span>Partnered with Tadrees Education</span>
-            </div>
-          </div>
-        </div>
+        <!-- Rules Tab -->
+        <button onclick="switchTab('rules')" id="tab-rules" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i>
+          <span>Rules</span>
+        </button>
 
-        <!-- Right Quick Card (Excellence in English) -->
-        <div class="lg:col-span-4">
-          <div class="glass-navy p-6 rounded-3xl border border-gold-500/30 text-center relative overflow-hidden shadow-2xl">
-            <div class="w-16 h-16 mx-auto rounded-full bg-navy-800 border-2 border-gold-400/40 flex items-center justify-center text-3xl shadow-inner mb-3">
-              🏆
-            </div>
-            <h3 class="text-lg font-black font-serifHero tracking-wider text-white">EXCELLENCE IN ENGLISH</h3>
-            <p class="text-xs text-gold-400 font-bold mb-5 tracking-wide">Al Rowad International School</p>
-
-            <div class="space-y-3 text-left">
-              <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
-                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-4 h-4 text-gold-400"></i> Academic Rigor</span>
-                <span class="font-bold text-emerald-400">UK &amp; US Standards</span>
-              </div>
-
-              <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
-                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="video" class="w-4 h-4 text-gold-400"></i> Parent Reach</span>
-                <span class="font-bold text-sky-400">YouTube Broadcast</span>
-              </div>
-
-              <div class="p-3 rounded-xl bg-navy-850/90 border border-gold-500/20 flex items-center justify-between text-xs">
-                <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="coins" class="w-4 h-4 text-gold-400"></i> Total Investment</span>
-                <span class="font-extrabold text-gold-400 text-sm">2,000 SAR</span>
-              </div>
-            </div>
-
-            <!-- Quick Word List Access Link -->
-            <div class="mt-4 pt-4 border-t border-slate-800">
-              <a href="https://spellingbee456.smartstudygrid.workers.dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-gold-400 hover:text-gold-300">
-                <span>View Official Word Lists</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <!-- Timer Tab -->
+        <button onclick="switchTab('timer')" id="tab-timer" class="tab-btn px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-700">
+          <i data-lucide="timer" class="w-4 h-4 text-rose-400"></i>
+          <span>50s Audition Timer</span>
+        </button>
       </div>
     </div>
-  </section>
+  </nav>
 
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
-    
-    <!-- Tab Navigation Bar -->
-    <div class="flex overflow-x-auto gap-2 pb-3 mb-8 border-b border-slate-800 custom-scrollbar" id="mainTabContainer">
-      <button onclick="switchTab('student')" id="tab-student" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-gold-500 text-navy-950 shadow-lg shadow-gold-500/20">
-        <i data-lucide="user-check" class="w-4 h-4"></i>
-        <span>Student Audition Portal</span>
-      </button>
 
-      <button onclick="switchTab('teacher')" id="tab-teacher" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="users" class="w-4 h-4 text-gold-400"></i>
-        <span>Teacher Team Selection</span>
-      </button>
+    <!-- TAB: HOME (Overview, Organizers, Quick Access) -->
+    <section id="content-home" class="tab-content block space-y-8">
+      <div class="relative bg-gradient-to-b from-navy-900 via-navy-900 to-navy-950 p-6 sm:p-10 rounded-3xl border border-slate-800/80 overflow-hidden shadow-2xl">
+        <div class="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#facc15_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Hero Column -->
+          <div class="lg:col-span-8 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-950/60 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 shadow-sm">
+              <span>🏆</span> OFFICIAL CHAMPIONSHIP INFORMATION • ALL STAKEHOLDERS
+            </div>
 
-      <button onclick="switchTab('structure')" id="tab-structure" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="git-branch" class="w-4 h-4 text-sky-400"></i>
-        <span>Program Structure</span>
-      </button>
+            <div class="flex items-center gap-4 sm:gap-6">
+              <!-- Borderless Image Placeholder: spelling-bee-logo.png on left of title -->
+              <img src="spelling-bee-logo.png" alt="Spelling Bee Championship Logo" class="h-20 sm:h-28 md:h-32 w-auto object-contain shrink-0" onerror="this.src='https://placehold.co/140x110/transparent/facc15?text=Bee+Logo'">
 
-      <button onclick="switchTab('schedule')" id="tab-schedule" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
-        <span>Schedule &amp; Dates</span>
-      </button>
+              <div class="space-y-1">
+                <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-gold-400 font-heading">
+                  Al Rowad International School
+                </h3>
+                <h2 class="text-3xl sm:text-5xl font-black font-serifHero tracking-wide leading-tight text-white">
+                  SPELLING BEE <br>
+                  <span class="gold-gradient-text">CHAMPIONSHIP 2026</span>
+                </h2>
+              </div>
+            </div>
 
-      <button onclick="switchTab('prizes')" id="tab-prizes" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="award" class="w-4 h-4 text-yellow-400"></i>
-        <span>Prizes &amp; Budget (2,000 SAR)</span>
-      </button>
+            <p class="text-slate-300 text-sm sm:text-base font-normal max-w-2xl leading-relaxed">
+              Empowering students across Grades 4 to 9 with vocabulary mastery, healthy academic competition, and high-impact family engagement across UK &amp; US English standards.
+            </p>
 
-      <button onclick="switchTab('rules')" id="tab-rules" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i>
-        <span>Rules (1 Point Rule)</span>
-      </button>
+            <!-- Proposal Badges: Target Groups, Presented By, Organizers -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div class="p-3.5 rounded-2xl bg-navy-850/90 border border-slate-800">
+                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Target Groups</span>
+                <span class="text-sm sm:text-base font-extrabold text-gold-400">Grades 4–6 &amp; 7–9</span>
+              </div>
 
-      <button onclick="switchTab('timer')" id="tab-timer" class="tab-btn px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-2 bg-navy-900 text-slate-300 hover:bg-navy-800 hover:text-white border border-slate-800">
-        <i data-lucide="timer" class="w-4 h-4 text-rose-400"></i>
-        <span>50s Audition Timer</span>
-      </button>
-    </div>
+              <div class="p-3.5 rounded-2xl bg-navy-850/90 border border-slate-800">
+                <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Presented By</span>
+                <span class="text-sm sm:text-base font-extrabold text-white">English Dept.</span>
+              </div>
 
-    <section id="content-student" class="tab-content block">
+              <!-- Full Organizers Team Display -->
+              <div class="p-3.5 rounded-2xl bg-navy-850/90 border border-gold-500/20 col-span-1 sm:col-span-2">
+                <span class="text-[11px] uppercase tracking-wider text-gold-400 font-extrabold block mb-1">Organizers</span>
+                <p class="text-xs sm:text-sm font-semibold text-slate-200 leading-relaxed">
+                  <strong class="text-white">Amanullah Khan</strong> - Head of English, 
+                  <strong class="text-white">Sadique Muncey</strong>, 
+                  <strong class="text-white">Ahmed Ali Abdurrahman</strong>, 
+                  <strong class="text-white">Amro Hassanain</strong>, 
+                  and the entire English Team and Activity Dept.
+                </p>
+              </div>
+            </div>
+
+            <!-- Partnership Note & CTAs -->
+            <div class="flex flex-wrap items-center gap-4 pt-1">
+              <button onclick="switchTab('student')" class="px-6 py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition shadow-lg shadow-gold-500/20 flex items-center gap-2">
+                <i data-lucide="pen-tool" class="w-4 h-4"></i>
+                <span>Student Audition Registration</span>
+              </button>
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+                <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
+                <span>Partnered with Tadrees Education</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Quick Card (Excellence in English) -->
+          <div class="lg:col-span-4">
+            <div class="glass-navy p-6 rounded-3xl border border-gold-500/30 text-center relative overflow-hidden shadow-2xl">
+              <div class="w-16 h-16 mx-auto rounded-full bg-navy-800 border-2 border-gold-400/40 flex items-center justify-center text-3xl shadow-inner mb-3">
+                🏆
+              </div>
+              <h3 class="text-lg font-black font-serifHero tracking-wider text-white">EXCELLENCE IN ENGLISH</h3>
+              <p class="text-xs text-gold-400 font-bold mb-5 tracking-wide">Al Rowad International School</p>
+
+              <div class="space-y-3 text-left">
+                <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
+                  <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-4 h-4 text-gold-400"></i> Academic Rigor</span>
+                  <span class="font-bold text-emerald-400">UK &amp; US Standards</span>
+                </div>
+
+                <div class="p-3 rounded-xl bg-navy-850/90 border border-slate-800 flex items-center justify-between text-xs">
+                  <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="video" class="w-4 h-4 text-gold-400"></i> Parent Reach</span>
+                  <span class="font-bold text-sky-400">YouTube Broadcast</span>
+                </div>
+
+                <div class="p-3 rounded-xl bg-navy-850/90 border border-gold-500/20 flex items-center justify-between text-xs">
+                  <span class="text-slate-400 flex items-center gap-1.5"><i data-lucide="coins" class="w-4 h-4 text-gold-400"></i> Total Investment</span>
+                  <span class="font-extrabold text-gold-400 text-sm">2,000 SAR</span>
+                </div>
+              </div>
+
+              <!-- Quick Word List Access Link -->
+              <div class="mt-4 pt-4 border-t border-slate-800">
+                <a href="https://spellingbee456.smartstudygrid.workers.dev" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-gold-400 hover:text-gold-300">
+                  <span>View Official Word Lists</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Quick Stakeholder Portals Row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div onclick="switchTab('student')" class="cursor-pointer p-6 rounded-3xl bg-navy-900 hover:bg-navy-850 border border-slate-800 hover:border-gold-500/40 transition shadow-xl space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl font-bold">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white">For Students</h4>
+          <p class="text-xs text-slate-400">Register for class auditions, access grade word lists, and practice with the 50-second clock.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-gold-400">Audition Form &rarr;</span>
+        </div>
+
+        <div onclick="switchTab('schedule')" class="cursor-pointer p-6 rounded-3xl bg-navy-900 hover:bg-navy-850 border border-slate-800 hover:border-sky-500/40 transition shadow-xl space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl font-bold">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white">For Parents</h4>
+          <p class="text-xs text-slate-400">Track key dates, live auditorium rounds, YouTube broadcasts, and competition format.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-sky-400">View Schedule &rarr;</span>
+        </div>
+
+        <div onclick="switchTab('teacher')" class="cursor-pointer p-6 rounded-3xl bg-navy-900 hover:bg-navy-850 border border-slate-800 hover:border-emerald-500/40 transition shadow-xl space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold">
+            <i data-lucide="lock" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-lg font-bold text-white">For Teachers</h4>
+          <p class="text-xs text-slate-400">Enter passcode <code>AisSpellingBee2026</code> to register your 3 winning class spellers for the tournament.</p>
+          <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-400">Teacher Portal &rarr;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: STUDENT AUDITION PORTAL -->
+    <section id="content-student" class="tab-content hidden">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Registration Form Card -->
@@ -602,14 +689,14 @@
             </div>
           </div>
 
-          <!-- Scoring Reminder -->
+          <!-- Scoring Reminder (5 points mention completely removed) -->
           <div class="p-5 rounded-3xl bg-amber-950/30 border border-amber-500/30 text-amber-200 text-xs space-y-2">
             <div class="flex items-center gap-2 font-bold text-amber-300 text-sm">
               <i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i>
               <span>Official Scoring Update</span>
             </div>
             <p class="leading-relaxed">
-              Please note: Each correctly spelt word earns <strong>1 point</strong> (not 5 points). Accuracy and time discipline are key!
+              Please note: Each correctly spelt word earns <strong>1 point</strong>. Accuracy and time discipline are key!
             </p>
           </div>
         </div>
@@ -617,6 +704,7 @@
       </div>
     </section>
 
+    <!-- TAB: TEACHER FINAL TEAM -->
     <section id="content-teacher" class="tab-content hidden">
       <div class="max-w-4xl mx-auto space-y-6">
         
@@ -1125,7 +1213,7 @@
               <span>Scoring System (1 Point)</span>
             </div>
             <p class="text-slate-300 leading-relaxed pl-8">
-              Each correctly spelt word is awarded exactly <strong>1 point</strong> (updated from previous 5-point systems). No penalty points are deducted for misses.
+              Each correctly spelt word is awarded exactly <strong>1 point</strong>. No penalty points are deducted for misses.
             </p>
           </div>
 
@@ -1468,7 +1556,7 @@ function createJsonResponse(obj) {
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('bg-gold-500', 'text-navy-950', 'shadow-lg', 'shadow-gold-500/20');
+        btn.classList.remove('bg-gold-500', 'text-navy-950', 'shadow-md', 'shadow-gold-500/20');
         btn.classList.add('bg-navy-900', 'text-slate-300');
       });
 
@@ -1478,7 +1566,7 @@ function createJsonResponse(obj) {
       const targetBtn = document.getElementById(`tab-${tabId}`);
       if (targetBtn) {
         targetBtn.classList.remove('bg-navy-900', 'text-slate-300');
-        targetBtn.classList.add('bg-gold-500', 'text-navy-950', 'shadow-lg', 'shadow-gold-500/20');
+        targetBtn.classList.add('bg-gold-500', 'text-navy-950', 'shadow-md', 'shadow-gold-500/20');
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
